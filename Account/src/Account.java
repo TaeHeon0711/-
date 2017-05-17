@@ -1,9 +1,11 @@
+import java.util.*;
 public abstract class Account implements Valuable{
 	private double account;
 	
 	public Account(){
 		
 	}
+	
 	@Override
 	public double EstimateValue(int month){
 		return account;
@@ -43,5 +45,18 @@ public abstract class Account implements Valuable{
 		
 	}	
 	
+	public static double sumForAccount(ArrayList<Account>list) {
+		double sum = 0;
+		for(Account account:list) {
+			sum += account.getBalance();
+		}
+		return sum;
+	}
+	
+	public static void passTimeForList(ArrayList<Account>list, int month) {
+		for(Account account:list) {
+			account.passTime(month);
+		}
+	}
 	
 }
